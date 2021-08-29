@@ -59,7 +59,7 @@
 
 ## Introduction
 
-This study will analyse and compare some of the most common optimization strategies used in allocating and accessing components in a component-centric Entity Component System. The chapter starts by introducing the area and terminology of entity component systems. It also cover the objective of the study and what can be expected in later chapters.
+This study will analyse and compare some of the most common optimization strategies used in allocating and accessing components in a component-centric Entity Component System. The section starts by introducing the area and terminology of entity component systems. It also cover the objective of the study and what can be expected in later sections.
 
 ### Topic
 
@@ -293,7 +293,7 @@ Reducing D-cache misses is the same when improving data locality. The data shoul
 
 The performance of the I-cache is decided by the memory layout of the code, which is often dictated by the compiler. However, depending on the compiler, I-cache misses can be reduced by keeping high-performance code as small as possible in terms of machine language instructions, avoiding calling functions from within performance-critical sections of code and through judicious use of inline functions.
 
-### Data Hazard
+### Data Hazards
 
 Data hazards are problems with the instruction pipeline of a CPU architecture that leads to reduced performance, or in worse case incorrect computation result. The pipeline generally consists of several stages. In optimal situations each instruction and each stage of the pipeline takes 1 cycle to executes. But in some situations an instruction can not execute until a previous instructions is complete.
 
