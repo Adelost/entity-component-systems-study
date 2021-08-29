@@ -221,6 +221,12 @@ Traditionally, object systems within games have relied on inheritance hierarchie
 
 Consider a class hierarchy as seen in [Figure 2.2](#fig_2_2) which corresponds to a hypothetical fantasy themed game. Problem would arise if a new feature calls for Collectables or Projectiles to be animated as the logic necessary is not part of either class. One solution is to move the needed functionality higher up in the hierarchy and merge Animated with Drawable. However, this requires changing the hierarchy and merging two unrelated classes, which lowers the design quality of cohesion (a measure of how closely related data and methods of a class are to each other) [\[16\]](#b_16), as they try to be all things to all objects. This usually makes the class harder to maintain, modify and understand.
 
+<p id="fig_2_2" align="center">
+  <img width="500" src="img/hierarchy.svg">
+</p>
+
+> <b>Figure 2.2:</b> Traditional class inheritance tree of entities.</p>
+
 
 
 ### Component-Based Object Systems
@@ -230,12 +236,6 @@ An often time better solution when designing object systems is to have a system 
 An attempt to accomplish this is to view each game object as an aggregation of modules or subobjects (usually referred to as components), which provides the entities with access to unique data or functionality. In order to keep this as flexible as possible, the entities needs to be completely generic, with unique functionality provided by modular components. Depending on the kind of object to create, different combinations of components is added to the entity.
 
 A simplified component-based design somewhat inspired by our previous example is illustrated in [Figure 2.3](#fig_2_3).
-
-<p id="fig_2_2" align="center">
-  <img width="500" src="img/hierarchy.svg">
-</p>
-
-> <b>Figure 2.2:</b> Traditional class inheritance tree of entities.</p>
 
 <p id="fig_2_3" align="center">
   <img width="700" src="img/dragontable.svg">
