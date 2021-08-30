@@ -560,7 +560,7 @@ Compared to the standard heap allocator all proposed data structures except `std
 
 ## Future Work
 
-* A benchmark comparing randomly accessed attributes to sequential attributes is missing from this study and would be of high interest to investigate further. This could further be compared to a property-centric vs an object-centric ECS.
+* A benchmark comparing randomly accessed attributes to sequential attributes is not included in this study and would be of high interest to investigate further. This could further be compared to a property-centric vs an object-centric ECS.
 
 * The benchmark was measured only on PC. It would be of interest to repeat the measurement on limited hardware with a slower cache memory than an average PC, such as PS3 or Raspberry Pi.
 
