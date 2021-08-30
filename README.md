@@ -564,7 +564,7 @@ Compared to the standard heap allocator all proposed data structures except `std
 
 * The benchmark was measured only on PC. It would be of interest to repeat the measurement on limited hardware with a slower cache memory than an average PC, such as PS3 or Raspberry Pi.
 
-* Only single threading was accounted for. Additional optimizations such as multithreading or SIMD could have a large effect on performance.
+* Only single threading was accounted for. Additional optimizations such as multithreading, SIMD or GPGPU could have a large effect on performance when working with sequential memory.
 
 * Additional options of the C++ language could be investigated, e.g. modifying data structures with "alloca" which can improve performance by allocating memory on the stack stack frame instead of heap, or features new to C++ 11 such as thread_local.
 
