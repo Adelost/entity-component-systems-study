@@ -37,17 +37,18 @@
     - [Memory Optimizations](#memory-optimizations)
     - [Memory Locality](#memory-locality)
     - [Instruction Cache](#instruction-cache)
-    - [Data Hazard](#data-hazard)
+    - [Data Hazards](#data-hazards)
     - [Data Alignment](#data-alignment)
   - [Method](#method)
   - [Implementations](#implementations)
     - [C++ Standard Library](#c-standard-library)
-    - [ae::Array](#aearray)
-    - [ae::StationaryArray](#aestationaryarray)
-    - [ae::PoolArray](#aepoolarray)
-    - [ae::PoolPtr](#aepoolptr)
-    - [ae::IdPoolArray](#aeidpoolarray)
-    - [ae::PoolList](#aepoollist)
+    - [Custom Data Structures](#custom-data-structures)
+      - [ae::Array](#aearray)
+      - [ae::StationaryArray](#aestationaryarray)
+      - [ae::PoolArray](#aepoolarray)
+      - [ae::PoolPtr](#aepoolptr)
+      - [ae::IdPoolArray](#aeidpoolarray)
+      - [ae::PoolList](#aepoollist)
     - [Note on Thread Safety](#note-on-thread-safety)
   - [Hardware](#hardware)
   - [Results](#results)
@@ -337,7 +338,9 @@ Apart from the custom data structures, the following data structures from the C+
 
 - **std::map:** An associative array which keeps keys sorted alphabetically.
 
-### ae::Array
+### Custom Data Structures
+
+#### ae::Array
 
 The Array container is a custom dynamic array implementation to compare against std::vector.
 
@@ -353,7 +356,7 @@ The Array container is a custom dynamic array implementation to compare against 
 
 > <b>Figure 4.2:</b>  An array of pointers (pointing to elements) laid out in memory. Each shifting color represents an individual memory segment.</p>
 
-### ae::StationaryArray
+#### ae::StationaryArray
 
 A data structure similar to a dynamic-array, but which does not reallocate the memory address of the stored elements when growing. However, elements are not guaranteed to be stored in adjacent memory locations.
 
@@ -378,7 +381,7 @@ Elements are allocated in memory segments which doubles in size for each added s
 
 - Memory address of elements cannot be used to calculate index.
 
-### ae::PoolArray
+#### ae::PoolArray
 
 A data structure inspired by a pool allocator, that picks lower indexes first when reusing empty slots (compared to the linked list approach by a pool allocator). As large numbers of allocations and deallocations are likely to be done consecutively inside a game, new elements will end up next to each other in memory, which may improves data locality and reduces memory fragmentation.
 
@@ -418,7 +421,7 @@ for (PoolPtr<int> i : a) {
 }
 ```
 
-### ae::PoolPtr
+#### ae::PoolPtr
 
 A PoolPtr is a template based custom allocator wrapper. It can be used to improve performance when allocating almost any object. This requires an object to be instantiated with the PoolPtr and the object can then be accessed from the PoolPtr similarly to an ordinary pointer or a smart pointer. This also requires the allocated object to be released from the PoolPtr before existing the application, similarly to deleting a pointer.
 
@@ -456,7 +459,7 @@ for (PoolPtr<int> i : a) {
 }
 ```
 
-### ae::IdPoolArray
+#### ae::IdPoolArray
 
 A wrapped PoolArray that associates each element with an id. Suitable for a component-centric architecture where the id corresponds to an entity.
 
@@ -500,7 +503,7 @@ for (auto i : a) {
 assert(total == 6);
 ```
 
-### ae::PoolList
+#### ae::PoolList
 
 A mix between a linked list and a pool allocator. The pool allocator should make it faster to add and remove elements than in a ordinary linked list.
 
