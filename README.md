@@ -314,11 +314,11 @@ Depending on the architecture, different sized classes and structs generally hav
 
 The performance of each data structures is measured using 3 different benchmarks, each designed to measures how execution time correlates to the number of elements with regards to operations typically used in a game simulation. The elapsed time is measured using a high precision timer. A brief description of each benchmark is as follows:
 
-- Allocation: The average time to create varying number of elements. The elements to be put inside the array is calculated in advance. Only the time of adding the precalculated is measured.
+- **Allocation:** The average time to create varying number of elements. The elements to be put inside the array is calculated in advance. Only the time of adding the precalculated is measured.
 
-- Deallocation: The average time to remove varying number of elements.
+- **Deallocation:** The average time to remove varying number of elements.
 
-- Iteration speed: The average time to read a small amount of data from varying number of elements. This data is then used to compute a checksum to make sure that all elements has been read properly. The read data is needed to give accurate readings on performance as most compilers optimizing away unused code and variables.
+- **Iteration speed:** The average time to read a small amount of data from varying number of elements. This data is then used to compute a checksum to make sure that all elements has been read properly. The read data is needed to give accurate readings on performance as most compilers optimizing away unused code and variables.
 
 ## Implementations
 
@@ -564,7 +564,7 @@ Compared to the standard heap allocator all proposed data structures except `std
 
 * The benchmark was measured only on PC. It would be of interest to repeat the measurement on limited hardware with a slower cache memory than an average PC, such as PS3 or Raspberry Pi.
 
-* Only single threading was accounted for. Additional optimizations such as multithreading, SIMD or GPGPU could have a large effect on performance when working with sequential memory.
+* Additional optimizations such as multithreading, SIMD or GPGPU could have a large effect on performance when working with sequential memory.
 
 * Additional options of the C++ language could be investigated, e.g. modifying data structures with "alloca" which can improve performance by allocating memory on the stack stack frame instead of heap, or features new to C++ 11 such as thread_local.
 
