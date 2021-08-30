@@ -5,11 +5,11 @@
 
 ## Abstract
 
-- **Context:** An Entity Component System (ECS) is an architecture pattern most commonly used in games. An entity represents a discernible element within the game world and is made up of a combination of modular components that determines the entity’s overall behaviour. ECSs can be further divided into Object-Centric and Component-Centric.
+- **Context:** An Entity Component System (ECS) is an architecture pattern most commonly used in games. An entity represents a discernible element within the game world and is made up of a combination of modular components that determines the entity’s overall behavior. ECSs can be further divided into Object-Centric and Component-Centric.
 
-- **Objectives:** This study investigates optimization strategies in allocating and accessing components in a component-centric ECS and aims to provide a general guideline to anyone interested in choosing from or implementing such a system. It also provides an overview of the history and terminology of ECS.
+- **Objectives:** This study investigates optimization strategies in allocating and accessing components in a component-centric ECS and aims to provide a guideline to anyone interested in choosing from or implementing such a system. It also provides an overview of the history and terminology of ECS.
 
-- **Methods:** A number of sources and articles on ECS are investigated. The object system of each ECS is broken down and into a series of data structures of increasing complexity and representative of the allocation and accesspattern of each implementation. These are then compared with regards to allocation speed, access speed and memory consumption, using a basic array data structure as a baseline for comparison.
+- **Methods:** A number of sources and articles on ECS are investigated. The object system of each ECS is broken down and into a series of data structures of increasing complexity and representative of the allocation and access pattern of each implementation. These are then compared with regards to allocation speed, access speed and memory consumption, using a basic array data structure as a baseline for comparison.
 
 - **Results:** A number of data structures useful in an ECS are presented and the result of each data structure with regards to allocation and access are measured. Data structures using custom memory allocation proved to have a substantial improvement on allocation and deallocation performance. Only a moderate impact of access time was measured between the data structures of high-complexity, and data structures of low complexity.
 
@@ -63,15 +63,15 @@ This study will analyse and compare some of the most common optimization strateg
 
 ### Topic
 
-Game engines, both available publicly or commercially, can vary greatly in details of their implementation. Some are tied to a specific game or game genre, while some strive to be generic, but even so, almost all share a set of recognisable subsystems usually operating within specific domains, such as rendering, audio, physics and AI [\[1\]](#b_1). This requires a mean of communication between the different systems, usually done in what has been referred by many authors as an Object System [\[2\]](#b_2)[\[3\]](#b_3)[\[4\]](#b_4).
+Game engines, both available publicly or commercially, can vary greatly in details of their implementation. Some are tied to a specific game or game genre, while some strive to be generic, but even so, almost all share a set of recognizable subsystems usually operating within specific domains, such as rendering, audio, physics and AI [\[1\]](#b_1). This requires a mean of communication between the different systems, usually done in what has been referred by many authors as an Object System [\[2\]](#b_2)[\[3\]](#b_3)[\[4\]](#b_4).
 
 #### Object Systems
 
-The object system allows different systems to share data between each other in the form of Entities (sometimes refered to as Game Objects) which represent a discernible elements within the game world. An entity usually contains the properties required by one or more systems to operate, e.g. the position of an object, required in both a rendering system to know where to render an object and a physics system to move an object.
+The object system allows different systems to share data between each other in the form of Entities (sometimes referred to as Game Objects) which represent a discernible elements within the game world. An entity usually contains the properties required by one or more systems to operate, e.g. the position of an object, required in both a rendering system to know where to render an object and a physics system to move an object.
 
 #### Entity Component Systems
 
-An increasingly popular category of object system is a component based object systems, often referred to as an Entity Component System (ECS). It allows entities to be described as a set of modular components which collectively provide the overall behaviour of the object. This offers flexibility as a wide range of entities with varying behaviour can be created through combinations of reusable components.
+An increasingly popular category of object system is a component based object systems, often referred to as an Entity Component System (ECS). It allows entities to be described as a set of modular components which collectively provide the overall behavior of the object. This offers flexibility as a wide range of entities with varying behavior can be created through combinations of reusable components.
 
 Barring some variations in terminology, an ECS consists in some form or another of the following elements:
 
@@ -79,7 +79,7 @@ Barring some variations in terminology, an ECS consists in some form or another 
 
 - **Property**: Particular attribute (or property) of an element in the game world, e.g. position, rotation or health. The property could either be an atomic data type, such as a boolean, an integer or a floating point; or a more advanced type, such as an array, a 3D vector or a matrix [\[1\]](#b_1).
 
-- **Component**: Container used to label a collection of properties and behaviours. The properties are usually stored inside the components themselves, but could also be stored separately and accessed as key-value pairs [\[5\]](#b_5)[\[2\]](#b_2). The behaviour could also be provided by systems operating on the specific component or through scripting [\[1\]](#b_1).
+- **Component**: Container used to label a collection of properties and behaviors. The properties are usually stored inside the components themselves, but could also be stored separately and accessed as key-value pairs [\[5\]](#b_5)[\[2\]](#b_2). The behavior could also be provided by systems operating on the specific component or through scripting [\[1\]](#b_1).
 
 - **System**: A system (or a subsystem) is a separate part of the architecture responsible for a specific domain, e.g. rendering, audio or physics. A system is interested in one or more types of components as they contain the data used by the system to operate.
 
@@ -91,10 +91,10 @@ An object systems usually ranges from one of two architectures [\[2\]](#b_2)[\[6
   <img src="img/centric.svg">
 </p>
 
-> <b>Figure 1.1:</b> Comparison of a Object-Centric (left) and a Component-Centric (right) object system.</p>
+> <b>Figure 1.1:</b> Comparison of an Object-Centric (left) and a Component-Centric (right) object system.</p>
 
 
-- **Object-Centric**: In an object-centric architecture the data and behaviour relevant to the entity is encapsulated inside the entity in an object-oriented manner. The game world is generally updated by calling an update method on each entity. The entity may then proceed to either update itself or call and update method on each of its components which thereafter performs its behaviour by calculating on its properties, accessing other components or by communicating with subsystems.
+- **Object-Centric**: In an object-centric architecture the data and behavior relevant to the entity is encapsulated inside the entity in an object-oriented manner. The game world is generally updated by calling an update method on each entity. The entity may then proceed to either update itself or call and update method on each of its components which thereafter performs its behavior by calculating on its properties, accessing other components or by communicating with subsystems.
 
 - **Component-Centric**: In a component-centric architecture the entity as a whole is seen and updated through its components. The components are usually stored in a separate data structure and keyed to the unique id of an object. A system interested in a particular type of component may then query the components directly without the indirection of the entity.
 
@@ -118,7 +118,7 @@ The term Entity System or Entity Component System was established fairly recentl
 
 It should be noted that there are some disagreement if object-centric object system, which is similar in design to the strategy pattern [\[12\]](#b_12), should be called an ECS or not, or if it should only apply to component-centric architectures. In this study we will make no such distinction as each architecture involves entities, components and systems, and instead refer to each ECS as being either object-centric or component-centric.
 
-Some authors also use the term property-centric architecture instead of component-centric. As noted by Jason Gregory  [\[1\]](#b_1) in a property-centric design, each subobject defines a particular attribute of an entity, whereas a component in an object-centric design typically represents linkages to particular subsystems, but that the distinction is so subtle as to be irrelevant in most cases as both designs consists of a logical game object comprised of, and that derives its behaviour from, a collection of subobjects.
+Some authors also use the term property-centric architecture instead of component-centric. As noted by Jason Gregory  [\[1\]](#b_1) in a property-centric design, each subobject defines a particular attribute of an entity, whereas a component in an object-centric design typically represents linkages to particular subsystems, but that the distinction is so subtle as to be irrelevant in most cases as both designs consists of a logical game object comprised of, and that derives its behavior from, a collection of subobjects.
 
 ### Related Work
 
@@ -557,7 +557,7 @@ Compared to the standard heap allocator all proposed data structures except `std
 
 ## Future Work
 
-* A benchmark comparing randomly accessed attributes compared to sequential attributes is missing from this study and would be of high interest to investigate further. This could further be compard to a property-centric vs an object-centric ECS.
+* A benchmark comparing randomly accessed attributes to sequential attributes is missing from this study and would be of high interest to investigate further. This could further be compared to a property-centric vs an object-centric ECS.
 
 * The benchmark was measured only on PC. It would be of interest to repeat the measurement on limited hardware with a slower cache memory than an average PC, such as PS3 or Raspberry Pi.
 
