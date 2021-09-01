@@ -280,7 +280,7 @@ The CPU cache is important in any memory optimizations as almost all memory used
 
 ### Memory Locality
 
-Since all memory has to move between the RAM and cache eventually, cache misses cannot be avoided. But the data can be rearranged in memory to reduce the number of cache misses. These memory access patterns are generally decided into what is called temporal locality and spatial locality [\[18\]](#b_18)[\[19\]](#b_19).
+Since all memory has to move between the RAM and cache eventually, cache misses cannot be avoided. But the data can be rearranged in memory to reduce the number of cache misses. These memory access patterns are generally divided into what is called temporal locality and spatial locality [\[18\]](#b_18)[\[19\]](#b_19).
 
 - **Spatial Locality**: Memory locations near each other tend to be used together. Because of this, when a cache miss occurs, a full cache line is fetched. This improves performance as one big memory transaction is faster than many small transactions. Maximum spatial locality can be achieved by storing data contiguously in memory, such as arranging our data inside an array, an then accessing it sequentially. This reduces the number of cache misses as it allows a maximum number of neighbouring elements to be loaded into the same cache line.
 
