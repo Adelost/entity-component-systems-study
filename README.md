@@ -338,8 +338,6 @@ Apart from the custom data structures, the following data structures from the C+
 
 - **std::map:** An associative array which keeps keys sorted alphabetically.
 
-Note that std allows
-
 ### Custom Data Structures
 
 #### ae::Array
