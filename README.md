@@ -338,6 +338,8 @@ Apart from the custom data structures, the following data structures from the C+
 
 - **std::map:** An associative array which keeps keys sorted alphabetically.
 
+Note that std allows
+
 ### Custom Data Structures
 
 #### ae::Array
@@ -406,8 +408,7 @@ p.release();
 Allocating multiple elements with a PoolPtr and Array:
 
 ``` c++
-Array<PoolPtr<int>> a;
-a << 0 << 1 << 2 << 3 << 4;
+Array<PoolPtr<int>> a = {0, 1, 2, 3, 4};
 
 int total = 0;
 for (PoolPtr<int> i : a) {
@@ -444,8 +445,7 @@ p.release();
 Allocating multiple elements with a PoolPtr and Array:
 
 ``` c++
-Array<PoolPtr<int>> a;
-a << 0 << 1 << 2 << 3 << 4;
+Array<PoolPtr<int>> a = {0, 1, 2, 3, 4};
 
 int total = 0;
 for (PoolPtr<int> i : a) {
@@ -465,7 +465,7 @@ A wrapped PoolArray that associates each element with an id. Suitable for a comp
 
 **Usage**
 
-Allocating multiple elements to a IdPoolArray.
+Allocating multiple elements to an IdPoolArray.
 
 ``` c++
 IdPoolArray<int> a;
@@ -487,7 +487,7 @@ assert(*a[2] == 2);
 a.count();
 ```
 
-Iterating all elements inside a IdPoolArray:
+Iterating all elements inside an IdPoolArray:
 
 ``` c++
 a.add(0, 1);
