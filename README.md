@@ -513,7 +513,7 @@ One suggested use case for a linked list inside an ECS could be to keep track of
 
 ### Note on Thread Safety
 
-Some of the custom data structures  make use static variables when allocating memory. This is generally not thread safe. Multithreading is out of scope in this study, but if needed this can probably be fixed with the C++ keyword `thread_local` that allows each thread to have its own copy of the variable.
+Some of the custom data structures  make use static variables when allocating memory. As mentioned in section [Memory Allocators](#memory-allocators), this is generally not thread safe. Multithreading is out of scope in this study, but if needed this can probably be fixed with the C++ keyword `thread_local` that allows each thread to have its own copy of the variable.
 
 ## Hardware
 
