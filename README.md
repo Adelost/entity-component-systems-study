@@ -1,6 +1,6 @@
 # Allocation and Access Optimizations in a Component-Centric Entity Component System in C++
 
-**Mattias E. O. Andersson** - 2014-05-15
+**Mattias E. O. Andersson** - written 2014-05-15, minor update 2021-08-28
 
 
 ## Abstract
