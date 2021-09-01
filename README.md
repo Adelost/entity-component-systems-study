@@ -600,6 +600,6 @@ Compared to the standard heap allocator all proposed data structures except `std
 - <div id="l_5"><sup>5</sup> http://www.cplusplus.com/reference/vector/vector/reserve/, accessed 2014-02-15</div>
 - <div id="l_6"><sup>6</sup> http://www.cryengine.com/, accessed 2014-05-15</div>
 - <div id="l_7"><sup>7</sup> http://unity3d.com/, accessed 2014-05-15</div>
-- <div id="l_8"><sup>8</sup> https://www.linkedin.com/in/scobi/, accessed 2021-08-29</div>
+- <div id="l_8"><sup>8</sup> https://www.linkedin.com/in/scobi/, accessed 2021-08-28</div>
 
  
